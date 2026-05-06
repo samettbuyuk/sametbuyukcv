@@ -10,7 +10,37 @@ interface TemplateProps {
 
 export default function CVTemplateCreative({ profile, experiences, educations, projects, skills }: TemplateProps) {
   return (
-    <div className="bg-[#f8f9fa] text-slate-900 p-10 max-w-[210mm] min-h-[297mm] mx-auto font-sans flex flex-col gap-6" style={{ width: '210mm' }}>
+    <div className="bg-[#f8f9fa] text-slate-900 p-4 md:p-10 w-full md:w-[210mm] min-h-screen md:min-h-[297mm] mx-auto font-sans flex flex-col gap-4 md:gap-6 print:w-[210mm] print:h-[297mm] print:p-6" id="cv-creative">
+      <style>{`
+        @media print {
+          #cv-creative {
+            width: 210mm !important;
+            height: 297mm !important;
+            overflow: hidden !important;
+            padding: 10mm !important;
+            margin: 0 !important;
+            background: #f8f9fa !important;
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 8pt !important;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+          }
+          header { padding: 12pt !important; border-radius: 12pt !important; background-color: #0f172a !important; color: white !important; margin-bottom: 5pt !important; }
+          section { padding: 10pt !important; border-radius: 12pt !important; margin-bottom: 0 !important; }
+          h1 { font-size: 16pt !important; }
+          h2 { font-size: 9pt !important; margin-bottom: 6pt !important; }
+          h3 { font-size: 10pt !important; }
+          p, div, span { font-size: 7.5pt !important; line-height: 1.1 !important; }
+          .grid { display: grid !important; gap: 8pt !important; }
+          .col-span-8 { grid-column: span 8 / span 8 !important; }
+          .col-span-4 { grid-column: span 4 / span 4 !important; }
+          .col-span-12 { grid-column: span 12 / span 12 !important; }
+          .space-y-8 > * + * { margin-top: 6pt !important; }
+          .space-y-6 > * + * { margin-top: 4pt !important; }
+          .w-24 { width: 0.8in !important; height: 0.8in !important; }
+        }
+      `}</style>
       {/* Header Bento Box */}
       <header className="bg-slate-900 text-white p-10 rounded-[40px] flex flex-col md:flex-row justify-between items-center relative overflow-hidden gap-6">
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full blur-[100px] -mr-32 -mt-32" />
@@ -32,9 +62,9 @@ export default function CVTemplateCreative({ profile, experiences, educations, p
         </div>
       </header>
 
-      <div className="grid grid-cols-12 gap-6">
+      <div className="flex flex-col lg:grid lg:grid-cols-12 gap-6">
         {/* Experience Bento */}
-        <section className="col-span-8 bg-white p-8 rounded-[40px] border border-slate-100 shadow-sm">
+        <section className="col-span-1 lg:col-span-8 bg-white p-6 md:p-8 rounded-[40px] border border-slate-100 shadow-sm">
           <h2 className="text-lg font-black uppercase tracking-tight mb-8 flex items-center gap-2">
              DENEYİM
             <span className="h-0.5 flex-1 bg-slate-50" />
@@ -42,9 +72,9 @@ export default function CVTemplateCreative({ profile, experiences, educations, p
           <div className="space-y-8">
             {experiences.map(exp => (
               <div key={exp.id} className="group">
-                <div className="flex justify-between items-center mb-2">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2 mb-2">
                   <h3 className="font-bold text-slate-900 text-lg group-hover:text-primary transition-colors">{exp.position}</h3>
-                  <span className="text-[10px] bg-slate-50 px-3 py-1 rounded-full font-bold text-slate-500 uppercase">{exp.startDate} — {exp.endDate || 'Günümüz'}</span>
+                  <span className="text-[10px] w-fit bg-slate-50 px-3 py-1 rounded-full font-bold text-slate-500 uppercase">{exp.startDate} — {exp.endDate || 'Günümüz'}</span>
                 </div>
                 <p className="text-xs font-bold text-primary italic mb-3 uppercase tracking-wider">{exp.company}</p>
                 <p className="text-xs text-slate-500 leading-relaxed line-clamp-3 group-hover:line-clamp-none transition-all">{exp.description}</p>
@@ -54,7 +84,7 @@ export default function CVTemplateCreative({ profile, experiences, educations, p
         </section>
 
         {/* Sidebar Bento Column */}
-        <div className="col-span-4 flex flex-col gap-6">
+        <div className="col-span-1 lg:col-span-4 flex flex-col gap-6">
           {/* Skills Bento */}
           <section className="bg-white p-8 rounded-[40px] border border-slate-100 shadow-sm">
             <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-6">Yetenekler</h2>
@@ -82,7 +112,7 @@ export default function CVTemplateCreative({ profile, experiences, educations, p
         </div>
 
         {/* Projects Bento - Wide Bottom */}
-        <section className="col-span-12 bg-white p-8 rounded-[40px] border border-slate-100 shadow-sm">
+        <section className="col-span-1 lg:col-span-12 bg-white p-6 md:p-8 rounded-[40px] border border-slate-100 shadow-sm">
           <h2 className="text-lg font-black uppercase tracking-tight mb-8">PROJELER</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map(proj => (

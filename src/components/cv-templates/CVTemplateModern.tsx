@@ -10,9 +10,48 @@ interface TemplateProps {
 
 export default function CVTemplateModern({ profile, experiences, educations, projects, skills }: TemplateProps) {
   return (
-    <div className="bg-white text-gray-900 max-w-[210mm] min-h-[297mm] mx-auto font-sans flex" style={{ width: '210mm' }}>
+    <div className="flex flex-col md:flex-row w-full md:w-[210mm] min-h-screen md:min-h-[297mm] mx-auto overflow-hidden shadow-2xl font-sans print:w-[210mm] print:h-[297mm] print:shadow-none" id="cv-modern">
+      <style>{`
+        @media print {
+          #cv-modern {
+            width: 210mm !important;
+            height: 297mm !important;
+            display: flex !important;
+            flex-direction: row !important;
+            background: white !important;
+            overflow: hidden !important;
+            margin: 0 !important;
+          }
+          aside { 
+            width: 28% !important; 
+            padding: 10pt !important; 
+            background-color: #111827 !important; 
+            -webkit-print-color-adjust: exact; 
+            print-color-adjust: exact;
+            display: block !important;
+            height: 297mm !important;
+          }
+          main { 
+            width: 72% !important; 
+            padding: 15pt !important; 
+            background: white !important; 
+            display: block !important;
+            height: 297mm !important;
+          }
+          h1 { font-size: 14pt !important; margin-bottom: 2pt !important; }
+          h2 { font-size: 8.5pt !important; margin-bottom: 4pt !important; padding-bottom: 2pt !important; }
+          h3 { font-size: 9pt !important; }
+          p, span, div { font-size: 7.5pt !important; line-height: 1.1 !important; color: inherit !important; }
+          .w-32 { width: 1.2in !important; height: 1.2in !important; }
+          .space-y-10 > * + * { margin-top: 8pt !important; }
+          .space-y-8 > * + * { margin-top: 6pt !important; }
+          .space-y-6 > * + * { margin-top: 5pt !important; }
+          .mb-6 { margin-bottom: 6pt !important; }
+          .pl-6 { padding-left: 8pt !important; }
+        }
+      `}</style>
       {/* Sidebar */}
-      <aside className="w-1/3 bg-gray-900 text-white p-8 space-y-10">
+      <aside className="w-full md:w-1/3 bg-gray-900 text-white p-8 space-y-10">
         <div className="flex flex-col items-center">
           <div className="w-32 h-32 rounded-3xl overflow-hidden border-4 border-gray-800 mb-6 bg-gray-800 flex items-center justify-center">
             {profile.profileImageUrl ? (
@@ -28,21 +67,20 @@ export default function CVTemplateModern({ profile, experiences, educations, pro
         <section>
           <h2 className="text-xs font-bold uppercase tracking-widest text-[#FF6B35] mb-4 border-b border-gray-800 pb-2">İletişim</h2>
           <div className="space-y-3 text-xs opacity-90">
-            <p>{profile.email}</p>
+            <p className="truncate overflow-hidden">{profile.email}</p>
             <p>{profile.phone}</p>
             <p>{profile.location}</p>
-            {profile.links?.linkedin && <p>LinkedIn: {profile.links.linkedin.replace('https://', '')}</p>}
-            {profile.links?.github && <p>GitHub: {profile.links.github.replace('https://', '')}</p>}
+            {profile.links?.linkedin && <p className="truncate overflow-hidden">LI: {profile.links.linkedin.replace('https://', '')}</p>}
           </div>
         </section>
 
         <section>
           <h2 className="text-xs font-bold uppercase tracking-widest text-[#FF6B35] mb-4 border-b border-gray-800 pb-2">Yetenekler</h2>
-          <div className="space-y-2">
+          <div className="grid grid-cols-2 lg:grid-cols-1 gap-2">
             {skills.map(s => (
               <div key={s.id} className="text-[10px] bg-gray-800 px-3 py-2 rounded-lg flex flex-col gap-0.5">
                 <span className="font-bold text-gray-100">{s.name}</span>
-                <span className="text-[9px] text-[#FF6B35] uppercase font-black tracking-tighter opacity-80">
+                <span className="text-[8px] text-[#FF6B35] uppercase font-black tracking-tighter opacity-80">
                   {s.level <= 33 ? 'Temel' : s.level <= 66 ? 'Orta' : 'İleri'}
                 </span>
               </div>
@@ -52,7 +90,7 @@ export default function CVTemplateModern({ profile, experiences, educations, pro
       </aside>
 
       {/* Main Content */}
-      <main className="w-2/3 p-10 space-y-10 bg-white">
+      <main className="w-full md:w-2/3 p-10 space-y-10 bg-white">
         <section>
           <h2 className="text-sm font-bold uppercase tracking-widest text-gray-500 mb-6 flex items-center gap-3">
             <span className="w-6 h-[1px] bg-gray-200"></span> İş Deneyimi

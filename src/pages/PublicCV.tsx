@@ -83,29 +83,30 @@ export default function PublicCV() {
   return (
     <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-900'} selection:bg-primary/20 p-4 md:p-8 lg:p-12 pb-24 md:pb-12`}>
       {/* Fixed Nav Controls */}
-      <nav className="fixed top-6 right-6 z-50 flex items-center gap-3 no-print">
+      <nav className="fixed top-4 right-4 md:top-6 md:right-6 z-[100] flex items-center gap-2 md:gap-3 no-print">
         <div className="relative selector-container">
           <button 
+            id="view-selector-btn"
             onClick={() => setShowViewSelector(!showViewSelector)}
-            className={`flex items-center gap-2 px-5 py-3 rounded-2xl border shadow-xl font-bold text-xs transition-all ${isDark ? 'bg-slate-900 border-slate-700 text-white' : 'bg-white border-slate-200 text-slate-700'} hover:scale-105`}
+            className={`flex items-center gap-2 px-3 py-2.5 md:px-5 md:py-3 rounded-2xl border shadow-xl font-bold text-[10px] md:text-xs transition-all ${isDark ? 'bg-slate-900 border-slate-700 text-white' : 'bg-white border-slate-200 text-slate-700'} active:scale-95`}
           >
-            <LayoutDashboard className="w-4 h-4 text-primary" />
-            <span className="hidden md:inline uppercase">{viewLabels[viewMode]}</span>
+            <LayoutDashboard className="w-4 h-4 text-primary flex-shrink-0" />
+            <span className="hidden sm:inline uppercase truncate max-w-[100px]">{viewLabels[viewMode]}</span>
           </button>
 
           <AnimatePresence>
             {showViewSelector && (
               <motion.div 
-                initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                className={`absolute top-full mt-3 right-0 w-64 p-2 rounded-2xl border shadow-2xl z-50 ${isDark ? 'bg-slate-900 border-slate-700' : 'bg-white border-slate-200'}`}
+                initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                className={`absolute top-full mt-3 right-0 w-64 p-2 rounded-2xl border shadow-2xl z-[101] ${isDark ? 'bg-slate-900 border-slate-700' : 'bg-white border-slate-200'}`}
               >
                 {(Object.keys(viewLabels) as Array<keyof typeof viewLabels>).map((mode) => (
                   <button
                     key={mode}
                     onClick={() => { setViewMode(mode); setShowViewSelector(false); }}
-                    className={`w-full text-left px-4 py-3 rounded-xl text-xs font-bold transition-all flex items-center justify-between group ${viewMode === mode ? 'bg-primary text-white' : isDark ? 'text-slate-400 hover:bg-slate-800' : 'text-slate-500 hover:bg-slate-100'}`}
+                    className={`w-full text-left px-4 py-3 rounded-xl text-[10px] md:text-xs font-bold transition-all flex items-center justify-between group ${viewMode === mode ? 'bg-primary text-white' : isDark ? 'text-slate-400 hover:bg-slate-800' : 'text-slate-500 hover:bg-slate-100'}`}
                   >
                     <span>{viewLabels[mode]}</span>
                     {viewMode === mode && <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />}
@@ -118,23 +119,23 @@ export default function PublicCV() {
         
         <button 
           onClick={() => setIsDark(!isDark)}
-          className={`border p-3 rounded-2xl shadow-xl hover:scale-110 transition-transform ${isDark ? 'bg-slate-900 border-slate-700 text-yellow-400' : 'bg-white border-slate-200 text-slate-600 hover:text-primary'}`}
+          className={`border p-2.5 md:p-3 rounded-2xl shadow-xl transition-all active:scale-90 ${isDark ? 'bg-slate-900 border-slate-700 text-yellow-400' : 'bg-white border-slate-200 text-slate-600'}`}
           title={isDark ? 'Gündüz Modu' : 'Gece Modu'}
         >
-          {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          {isDark ? <Sun className="w-4 h-4 md:w-5 md:h-5" /> : <Moon className="w-4 h-4 md:w-5 md:h-5" />}
         </button>
 
         <button 
           onClick={() => handlePrint()} 
-          className={`border p-3 rounded-2xl shadow-xl hover:scale-110 transition-transform ${isDark ? 'bg-slate-900 border-slate-700 text-slate-400' : 'bg-white border-slate-200 text-slate-600 hover:text-primary'}`}
+          className={`border p-2.5 md:p-3 rounded-2xl shadow-xl transition-all active:scale-90 ${isDark ? 'bg-slate-900 border-slate-700 text-white' : 'bg-white border-slate-200 text-slate-600'}`}
           title="PDF Olarak Kaydet"
         >
-          <Download className="w-5 h-5" />
+          <Download className="w-4 h-4 md:w-5 md:h-5" />
         </button>
       </nav>
 
       {/* Main Content Area */}
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto overflow-hidden md:overflow-visible">
         <AnimatePresence mode="wait">
           {viewMode === 'bento' ? (
             <motion.div 
@@ -480,22 +481,57 @@ export default function PublicCV() {
         </AnimatePresence>
       </div>
 
-      {/* Print Overlay (Hidden on screen, but rendered for printing) */}
+      {/* Print Overlay - Hidden but reachable by printing libraries */}
       <div 
-        className="fixed top-0 left-0 w-0 h-0 overflow-hidden opacity-0 pointer-events-none"
-        style={{ zIndex: -9999 }}
-        aria-hidden="true"
+        className="print-only-container"
+        style={{ 
+          position: 'fixed', 
+          opacity: 0, 
+          pointerEvents: 'none', 
+          left: '-10000px', 
+          top: 0, 
+          width: '210mm', 
+          height: '297mm', 
+          overflow: 'hidden',
+          zIndex: -1
+        }}
       >
-        <div ref={printRef} className="bg-white">
-          {viewMode === 'modern' ? (
-            <CVTemplateModern profile={profile} experiences={experiences} educations={educations} projects={projects} skills={skills} />
-          ) : viewMode === 'minimalist' ? (
-            <CVTemplateMinimalist profile={profile} experiences={experiences} educations={educations} projects={projects} skills={skills} />
-          ) : viewMode === 'creative' ? (
-            <CVTemplateCreative profile={profile} experiences={experiences} educations={educations} projects={projects} skills={skills} />
-          ) : (
-            <CVTemplateProfessional profile={profile} experiences={experiences} educations={educations} projects={projects} skills={skills} />
-          )}
+        <div ref={printRef} className="bg-white" style={{ width: '210mm', height: '297mm', margin: 0, padding: 0 }}>
+          <style>{`
+            @media print {
+              @page {
+                size: A4;
+                margin: 0;
+              }
+              body {
+                margin: 0 !important;
+                padding: 0 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+              }
+              .print-container-wrapper {
+                width: 210mm !important;
+                height: 297mm !important;
+                overflow: hidden !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                page-break-after: avoid !important;
+                page-break-before: avoid !important;
+                background: white !important;
+              }
+            }
+          `}</style>
+          <div className="print-container-wrapper">
+            {viewMode === 'modern' ? (
+              <CVTemplateModern profile={profile} experiences={experiences} educations={educations} projects={projects} skills={skills} />
+            ) : viewMode === 'minimalist' ? (
+              <CVTemplateMinimalist profile={profile} experiences={experiences} educations={educations} projects={projects} skills={skills} />
+            ) : viewMode === 'creative' ? (
+              <CVTemplateCreative profile={profile} experiences={experiences} educations={educations} projects={projects} skills={skills} />
+            ) : (
+              <CVTemplateProfessional profile={profile} experiences={experiences} educations={educations} projects={projects} skills={skills} />
+            )}
+          </div>
         </div>
       </div>
     </div>

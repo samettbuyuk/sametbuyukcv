@@ -10,10 +10,33 @@ interface TemplateProps {
 
 export default function CVTemplateProfessional({ profile, experiences, educations, projects, skills }: TemplateProps) {
   return (
-    <div className="bg-white text-black p-12 max-w-[210mm] min-h-[297mm] mx-auto font-serif" style={{ width: '210mm' }}>
+    <div className="bg-white text-black p-6 md:p-12 w-full md:w-[210mm] min-h-screen md:min-h-[297mm] mx-auto font-serif print:w-[210mm] print:p-0 print:min-h-0" id="cv-professional">
+      <style>{`
+        @media print {
+          #cv-professional {
+            width: 210mm !important;
+            height: 297mm !important;
+            overflow: hidden !important;
+            background: white !important;
+            color: black !important;
+            padding: 10mm !important;
+            margin: 0 !important;
+            display: block !important;
+          }
+          header { flex-direction: row !important; align-items: center !important; justify-content: space-between !important; margin-bottom: 10pt !important; border-width: 1pt !important; }
+          h1 { font-size: 20pt !important; margin-bottom: 2pt !important; }
+          h2 { font-size: 11pt !important; margin-bottom: 6pt !important; padding-bottom: 2pt !important; border-bottom: 0.5pt solid #ccc !important; }
+          h3 { font-size: 9pt !important; }
+          p, span, div { font-size: 8pt !important; line-height: 1.15 !important; color: black !important; }
+          .mb-8 { margin-bottom: 10pt !important; }
+          .space-y-6 > * + * { margin-top: 6pt !important; }
+          .space-y-4 > * + * { margin-top: 4pt !important; }
+          .w-24 { width: 1.5in !important; height: 1.5in !important; }
+        }
+      `}</style>
       {/* Header */}
-      <header className="border-b-2 border-black pb-6 mb-8 flex justify-between items-center">
-        <div className="flex items-center gap-6">
+      <header className="border-b-2 border-black pb-6 mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
           {profile.profileImageUrl && (
             <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-black">
               <img src={profile.profileImageUrl} alt={profile.fullName} className="w-full h-full object-cover" />
