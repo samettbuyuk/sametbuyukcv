@@ -13,32 +13,38 @@ export default function CVTemplateCreative({ profile, experiences, educations, p
     <div className="bg-[#f8f9fa] text-slate-900 p-4 md:p-10 w-full md:w-[210mm] min-h-screen md:min-h-[297mm] mx-auto font-sans flex flex-col gap-4 md:gap-6 print:w-[210mm] print:h-[297mm] print:p-6" id="cv-creative">
       <style>{`
         @media print {
+          @page {
+            size: A4;
+            margin: 0;
+          }
           #cv-creative {
             width: 210mm !important;
             height: 297mm !important;
             overflow: hidden !important;
-            padding: 10mm !important;
+            padding: 8mm !important;
             margin: 0 !important;
             background: #f8f9fa !important;
             display: flex !important;
             flex-direction: column !important;
-            gap: 8pt !important;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
+            gap: 6pt !important;
+            box-sizing: border-box !important;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
           }
-          header { padding: 12pt !important; border-radius: 12pt !important; background-color: #0f172a !important; color: white !important; margin-bottom: 5pt !important; }
-          section { padding: 10pt !important; border-radius: 12pt !important; margin-bottom: 0 !important; }
-          h1 { font-size: 16pt !important; }
-          h2 { font-size: 9pt !important; margin-bottom: 6pt !important; }
-          h3 { font-size: 10pt !important; }
-          p, div, span { font-size: 7.5pt !important; line-height: 1.1 !important; }
-          .grid { display: grid !important; gap: 8pt !important; }
+          header { padding: 10pt !important; border-radius: 10pt !important; background-color: #0f172a !important; color: white !important; margin-bottom: 4pt !important; }
+          section { padding: 8pt !important; border-radius: 10pt !important; margin-bottom: 0 !important; }
+          h1 { font-size: 14pt !important; }
+          h2 { font-size: 8.5pt !important; margin-bottom: 4pt !important; }
+          h3 { font-size: 8.5pt !important; }
+          p, div, span { font-size: 7.5pt !important; line-height: 1.05 !important; }
+          .grid { display: grid !important; gap: 6pt !important; }
           .col-span-8 { grid-column: span 8 / span 8 !important; }
           .col-span-4 { grid-column: span 4 / span 4 !important; }
           .col-span-12 { grid-column: span 12 / span 12 !important; }
-          .space-y-8 > * + * { margin-top: 6pt !important; }
-          .space-y-6 > * + * { margin-top: 4pt !important; }
+          .space-y-8 > * + * { margin-top: 5pt !important; }
+          .space-y-6 > * + * { margin-top: 3pt !important; }
           .w-24 { width: 0.8in !important; height: 0.8in !important; }
+          .rounded-[40px] { border-radius: 12pt !important; }
         }
       `}</style>
       {/* Header Bento Box */}

@@ -13,20 +13,30 @@ export default function CVTemplateMinimalist({ profile, experiences, educations,
     <div className="bg-white text-gray-800 p-6 md:p-12 w-full md:w-[210mm] min-h-screen md:min-h-[297mm] mx-auto font-sans print:w-[210mm] print:h-[297mm]" id="cv-minimalist">
       <style>{`
         @media print {
+          @page {
+            size: A4;
+            margin: 0;
+          }
           #cv-minimalist {
             width: 210mm !important;
             height: 297mm !important;
-            padding: 25pt !important;
+            padding: 12mm !important;
+            margin: 0 !important;
             background: white !important;
+            overflow: hidden !important;
+            box-sizing: border-box !important;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
           }
-          h1 { font-size: 24pt !important; margin-bottom: 4pt !important; }
-          h2 { font-size: 8pt !important; margin-bottom: 12pt !important; }
-          h3 { font-size: 10pt !important; }
-          p, span, div { font-size: 8.5pt !important; line-height: 1.2 !important; }
-          .mb-12 { margin-bottom: 15pt !important; }
-          .space-y-12 > * + * { margin-top: 15pt !important; }
-          .space-y-10 > * + * { margin-top: 10pt !important; }
-          .pt-12 { padding-top: 15pt !important; }
+          h1 { font-size: 18pt !important; margin-bottom: 2pt !important; }
+          h2 { font-size: 7.5pt !important; margin-bottom: 6pt !important; }
+          h3 { font-size: 8.5pt !important; }
+          p, span, div { font-size: 7.5pt !important; line-height: 1.15 !important; }
+          .mb-12 { margin-bottom: 12pt !important; }
+          .space-y-12 > * + * { margin-top: 10pt !important; }
+          .space-y-10 > * + * { margin-top: 8pt !important; }
+          .pt-12 { padding-top: 10pt !important; }
+          .w-24 { width: 1.0in !important; height: 1.0in !important; }
         }
       `}</style>
       <header className="mb-12 flex flex-col md:flex-row justify-between items-center md:items-start text-center md:text-left gap-6">

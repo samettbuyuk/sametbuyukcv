@@ -13,6 +13,10 @@ export default function CVTemplateModern({ profile, experiences, educations, pro
     <div className="flex flex-col md:flex-row w-full md:w-[210mm] min-h-screen md:min-h-[297mm] mx-auto overflow-hidden shadow-2xl font-sans print:w-[210mm] print:h-[297mm] print:shadow-none" id="cv-modern">
       <style>{`
         @media print {
+          @page {
+            size: A4;
+            margin: 0;
+          }
           #cv-modern {
             width: 210mm !important;
             height: 297mm !important;
@@ -21,10 +25,11 @@ export default function CVTemplateModern({ profile, experiences, educations, pro
             background: white !important;
             overflow: hidden !important;
             margin: 0 !important;
+            box-sizing: border-box !important;
           }
           aside { 
             width: 28% !important; 
-            padding: 10pt !important; 
+            padding: 8pt !important; 
             background-color: #111827 !important; 
             -webkit-print-color-adjust: exact; 
             print-color-adjust: exact;
@@ -33,21 +38,21 @@ export default function CVTemplateModern({ profile, experiences, educations, pro
           }
           main { 
             width: 72% !important; 
-            padding: 15pt !important; 
+            padding: 12pt !important; 
             background: white !important; 
             display: block !important;
             height: 297mm !important;
           }
           h1 { font-size: 14pt !important; margin-bottom: 2pt !important; }
-          h2 { font-size: 8.5pt !important; margin-bottom: 4pt !important; padding-bottom: 2pt !important; }
-          h3 { font-size: 9pt !important; }
-          p, span, div { font-size: 7.5pt !important; line-height: 1.1 !important; color: inherit !important; }
-          .w-32 { width: 1.2in !important; height: 1.2in !important; }
-          .space-y-10 > * + * { margin-top: 8pt !important; }
-          .space-y-8 > * + * { margin-top: 6pt !important; }
-          .space-y-6 > * + * { margin-top: 5pt !important; }
-          .mb-6 { margin-bottom: 6pt !important; }
-          .pl-6 { padding-left: 8pt !important; }
+          h2 { font-size: 8pt !important; margin-bottom: 4pt !important; padding-bottom: 1pt !important; }
+          h3 { font-size: 8.5pt !important; }
+          p, span, div { font-size: 7pt !important; line-height: 1.05 !important; color: inherit !important; }
+          .w-32 { width: 1.0in !important; height: 1.0in !important; }
+          .space-y-10 > * + * { margin-top: 6pt !important; }
+          .space-y-8 > * + * { margin-top: 5pt !important; }
+          .space-y-6 > * + * { margin-top: 4pt !important; }
+          .mb-6 { margin-bottom: 4pt !important; }
+          .pl-6 { padding-left: 6pt !important; }
         }
       `}</style>
       {/* Sidebar */}
