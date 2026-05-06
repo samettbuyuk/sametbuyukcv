@@ -24,22 +24,22 @@ export default function CVTemplateProfessional({ profile, experiences, education
             overflow: visible !important;
             background: white !important;
             color: black !important;
-            padding: 10mm !important;
+            padding: 15mm !important;
             margin: 0 !important;
             display: block !important;
             box-sizing: border-box !important;
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
           }
-          header { flex-direction: row !important; align-items: center !important; justify-content: space-between !important; margin-bottom: 6pt !important; border-width: 1pt !important; padding-bottom: 3pt !important; }
-          h1 { font-size: 14pt !important; margin-bottom: 1pt !important; }
-          h2 { font-size: 8.5pt !important; margin-bottom: 2pt !important; padding-bottom: 1pt !important; border-bottom: 0.5pt solid #ccc !important; }
-          h3 { font-size: 7.5pt !important; }
-          p, span, div { font-size: 6.5pt !important; line-height: 1.0 !important; color: black !important; }
-          .mb-8 { margin-bottom: 4pt !important; }
-          .space-y-6 > * + * { margin-top: 3pt !important; }
-          .space-y-4 > * + * { margin-top: 2pt !important; }
-          .w-24 { width: 0.7in !important; height: 0.7in !important; }
+          header { flex-direction: row !important; align-items: start !important; justify-content: space-between !important; margin-bottom: 12pt !important; border-width: 1pt !important; padding-bottom: 6pt !important; }
+          h1 { font-size: 20pt !important; margin-bottom: 2pt !important; }
+          h2 { font-size: 10pt !important; margin-bottom: 6pt !important; padding-bottom: 2pt !important; border-bottom: 0.5pt solid #ccc !important; }
+          h3 { font-size: 9pt !important; }
+          p, span, div { font-size: 9pt !important; line-height: 1.2 !important; color: black !important; }
+          .mb-8 { margin-bottom: 8pt !important; }
+          .space-y-6 > * + * { margin-top: 6pt !important; }
+          .space-y-4 > * + * { margin-top: 4pt !important; }
+          .w-24 { width: 1.0in !important; height: 1.0in !important; }
         }
       `}</style>
       {/* Header */}

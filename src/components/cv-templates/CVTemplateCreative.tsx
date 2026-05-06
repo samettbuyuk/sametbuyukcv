@@ -22,30 +22,33 @@ export default function CVTemplateCreative({ profile, experiences, educations, p
             height: auto !important;
             min-height: 297mm !important;
             overflow: visible !important;
-            padding: 6mm !important;
+            padding: 10mm !important;
             margin: 0 !important;
             background: #f8f9fa !important;
             display: flex !important;
             flex-direction: column !important;
-            gap: 4pt !important;
+            gap: 10pt !important;
             box-sizing: border-box !important;
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
           }
-          header { padding: 6pt !important; border-radius: 6pt !important; background-color: #0f172a !important; color: white !important; margin-bottom: 2pt !important; }
-          section { padding: 5pt !important; border-radius: 6pt !important; margin-bottom: 0 !important; }
-          h1 { font-size: 11pt !important; }
-          h2 { font-size: 7pt !important; margin-bottom: 2pt !important; }
-          h3 { font-size: 7pt !important; }
-          p, div, span { font-size: 6pt !important; line-height: 0.95 !important; }
-          .grid { display: grid !important; gap: 3pt !important; }
-          .col-span-8 { grid-column: span 8 / span 8 !important; }
-          .col-span-4 { grid-column: span 4 / span 4 !important; }
-          .col-span-12 { grid-column: span 12 / span 12 !important; }
-          .space-y-8 > * + * { margin-top: 3pt !important; }
-          .space-y-6 > * + * { margin-top: 2pt !important; }
-          .w-24 { width: 0.6in !important; height: 0.6in !important; }
-          .rounded-[40px] { border-radius: 6pt !important; }
+          header { padding: 15pt !important; border-radius: 15pt !important; background-color: #0f172a !important; color: white !important; margin-bottom: 5pt !important; display: flex !important; flex-direction: row !important; justify-content: space-between !important; align-items: center !important; }
+          section { padding: 12pt !important; border-radius: 15pt !important; margin-bottom: 0 !important; background: white !important; }
+          h1 { font-size: 18pt !important; }
+          h2 { font-size: 10pt !important; margin-bottom: 8pt !important; }
+          h3 { font-size: 11pt !important; }
+          p, div, span { font-size: 8.5pt !important; line-height: 1.2 !important; }
+          .flex.flex-col.lg\\:grid { display: grid !important; grid-template-columns: repeat(12, 1fr) !important; gap: 10pt !important; }
+          .lg\\:col-span-8 { grid-column: span 8 !important; }
+          .lg\\:col-span-4 { grid-column: span 4 !important; }
+          .lg\\:col-span-12 { grid-column: span 12 !important; }
+          .space-y-8 > * + * { margin-top: 8pt !important; }
+          .space-y-6 > * + * { margin-top: 5pt !important; }
+          .w-24 { width: 1.2in !important; height: 1.2in !important; }
+          .rounded-\\[40px\\] { border-radius: 12pt !important; }
+          .grid { display: grid !important; gap: 10pt !important; }
+          .md\\:grid-cols-2 { grid-template-columns: repeat(2, 1fr) !important; }
+          .lg\\:grid-cols-3 { grid-template-columns: repeat(3, 1fr) !important; }
         }
       `}</style>
       {/* Header Bento Box */}

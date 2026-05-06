@@ -21,23 +21,29 @@ export default function CVTemplateMinimalist({ profile, experiences, educations,
             width: 210mm !important;
             height: auto !important;
             min-height: 297mm !important;
-            padding: 8mm !important;
+            padding: 15mm !important;
             margin: 0 !important;
             background: white !important;
             overflow: visible !important;
             box-sizing: border-box !important;
+            display: block !important;
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
           }
-          h1 { font-size: 14pt !important; margin-bottom: 1pt !important; }
-          h2 { font-size: 6pt !important; margin-bottom: 3pt !important; }
-          h3 { font-size: 7.5pt !important; }
-          p, span, div { font-size: 6.5pt !important; line-height: 1.0 !important; }
-          .mb-12 { margin-bottom: 6pt !important; }
-          .space-y-12 > * + * { margin-top: 6pt !important; }
-          .space-y-10 > * + * { margin-top: 4pt !important; }
-          .pt-12 { padding-top: 6pt !important; }
-          .w-24 { width: 0.7in !important; height: 0.7in !important; }
+          header { display: flex !important; flex-direction: row !important; align-items: start !important; justify-content: space-between !important; margin-bottom: 15pt !important; }
+          h1 { font-size: 20pt !important; margin-bottom: 4pt !important; }
+          h2 { font-size: 8pt !important; margin-bottom: 8pt !important; }
+          h3 { font-size: 10pt !important; margin-bottom: 2pt !important; }
+          p, span, div { font-size: 8.5pt !important; line-height: 1.2 !important; }
+          .mb-12 { margin-bottom: 10pt !important; }
+          .space-y-12 > * + * { margin-top: 12pt !important; }
+          .space-y-10 > * + * { margin-top: 8pt !important; }
+          .pt-12 { padding-top: 10pt !important; }
+          .w-24 { width: 1.2in !important; height: 1.2in !important; }
+          .flex-col.md\\:grid { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 15pt !important; }
+          .md\\:col-span-1 { grid-column: span 1 !important; }
+          .md\\:col-span-3 { grid-column: span 3 !important; }
+          .md\\:grid-cols-2 { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 15pt !important; }
         }
       `}</style>
       <header className="mb-12 flex flex-col md:flex-row justify-between items-center md:items-start text-center md:text-left gap-6">
