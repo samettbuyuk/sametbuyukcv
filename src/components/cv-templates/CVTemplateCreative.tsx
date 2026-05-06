@@ -19,32 +19,33 @@ export default function CVTemplateCreative({ profile, experiences, educations, p
           }
           #cv-creative {
             width: 210mm !important;
-            height: 297mm !important;
-            overflow: hidden !important;
-            padding: 8mm !important;
+            height: auto !important;
+            min-height: 297mm !important;
+            overflow: visible !important;
+            padding: 6mm !important;
             margin: 0 !important;
             background: #f8f9fa !important;
             display: flex !important;
             flex-direction: column !important;
-            gap: 6pt !important;
+            gap: 4pt !important;
             box-sizing: border-box !important;
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
           }
-          header { padding: 8pt !important; border-radius: 8pt !important; background-color: #0f172a !important; color: white !important; margin-bottom: 3pt !important; }
-          section { padding: 6pt !important; border-radius: 8pt !important; margin-bottom: 0 !important; }
-          h1 { font-size: 13pt !important; }
-          h2 { font-size: 7.5pt !important; margin-bottom: 3pt !important; }
-          h3 { font-size: 7.5pt !important; }
-          p, div, span { font-size: 6.5pt !important; line-height: 1.0 !important; }
-          .grid { display: grid !important; gap: 4pt !important; }
+          header { padding: 6pt !important; border-radius: 6pt !important; background-color: #0f172a !important; color: white !important; margin-bottom: 2pt !important; }
+          section { padding: 5pt !important; border-radius: 6pt !important; margin-bottom: 0 !important; }
+          h1 { font-size: 11pt !important; }
+          h2 { font-size: 7pt !important; margin-bottom: 2pt !important; }
+          h3 { font-size: 7pt !important; }
+          p, div, span { font-size: 6pt !important; line-height: 0.95 !important; }
+          .grid { display: grid !important; gap: 3pt !important; }
           .col-span-8 { grid-column: span 8 / span 8 !important; }
           .col-span-4 { grid-column: span 4 / span 4 !important; }
           .col-span-12 { grid-column: span 12 / span 12 !important; }
           .space-y-8 > * + * { margin-top: 3pt !important; }
           .space-y-6 > * + * { margin-top: 2pt !important; }
-          .w-24 { width: 0.7in !important; height: 0.7in !important; }
-          .rounded-[40px] { border-radius: 8pt !important; }
+          .w-24 { width: 0.6in !important; height: 0.6in !important; }
+          .rounded-[40px] { border-radius: 6pt !important; }
         }
       `}</style>
       {/* Header Bento Box */}
@@ -95,7 +96,7 @@ export default function CVTemplateCreative({ profile, experiences, educations, p
           <section className="bg-white p-8 rounded-[40px] border border-slate-100 shadow-sm">
             <h2 className="text-xs font-black uppercase tracking-widest text-slate-400 mb-6">Yetenekler</h2>
             <div className="flex flex-wrap gap-2">
-              {skills.slice(0, 10).map(s => (
+              {skills.map(s => (
                 <div key={s.id} className="text-[10px] font-bold bg-slate-50 px-3 py-2 rounded-2xl border border-slate-100">
                   {s.name}
                 </div>
@@ -125,7 +126,7 @@ export default function CVTemplateCreative({ profile, experiences, educations, p
               <div key={proj.id} className="p-6 bg-slate-50 rounded-3xl group hover:bg-slate-900 hover:text-white transition-all cursor-default">
                 <h3 className="font-black text-sm mb-2 uppercase tracking-tight">{proj.title}</h3>
                 <div className="flex gap-2 mb-3">
-                  {proj.technologies?.slice(0, 2).map(t => (
+                  {proj.technologies?.map(t => (
                     <span key={t} className="text-[8px] font-black uppercase opacity-40">#{t}</span>
                   ))}
                 </div>

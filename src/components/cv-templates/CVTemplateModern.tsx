@@ -19,40 +19,43 @@ export default function CVTemplateModern({ profile, experiences, educations, pro
           }
           #cv-modern {
             width: 210mm !important;
-            height: 297mm !important;
+            height: auto !important;
+            min-height: 297mm !important;
             display: flex !important;
             flex-direction: row !important;
             background: white !important;
-            overflow: hidden !important;
+            overflow: visible !important;
             margin: 0 !important;
             box-sizing: border-box !important;
           }
           aside { 
             width: 28% !important; 
-            padding: 6pt !important; 
+            padding: 5pt !important; 
             background-color: #111827 !important; 
             -webkit-print-color-adjust: exact; 
             print-color-adjust: exact;
             display: block !important;
-            height: 297mm !important;
+            min-height: 297mm !important;
+            height: auto !important;
           }
           main { 
             width: 72% !important; 
-            padding: 10pt !important; 
+            padding: 8pt !important; 
             background: white !important; 
             display: block !important;
-            height: 297mm !important;
+            min-height: 297mm !important;
+            height: auto !important;
           }
-          h1 { font-size: 12pt !important; margin-bottom: 1pt !important; }
-          h2 { font-size: 7pt !important; margin-bottom: 3pt !important; padding-bottom: 1pt !important; }
+          h1 { font-size: 11pt !important; margin-bottom: 1pt !important; }
+          h2 { font-size: 6.5pt !important; margin-bottom: 2pt !important; padding-bottom: 1pt !important; }
           h3 { font-size: 7pt !important; }
           p, span, div { font-size: 6pt !important; line-height: 1.0 !important; color: inherit !important; }
-          .w-32 { width: 0.8in !important; height: 0.8in !important; }
-          .space-y-10 > * + * { margin-top: 4pt !important; }
-          .space-y-8 > * + * { margin-top: 3pt !important; }
+          .w-32 { width: 0.7in !important; height: 0.7in !important; }
+          .space-y-10 > * + * { margin-top: 3pt !important; }
+          .space-y-8 > * + * { margin-top: 2pt !important; }
           .space-y-6 > * + * { margin-top: 2pt !important; }
           .mb-6 { margin-bottom: 2pt !important; }
-          .pl-6 { padding-left: 4pt !important; }
+          .pl-6 { padding-left: 3pt !important; }
         }
       `}</style>
       {/* Sidebar */}
