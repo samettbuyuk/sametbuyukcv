@@ -21,7 +21,7 @@ export default function CVTemplateMinimalist({ profile, experiences, educations,
             width: 210mm !important;
             height: auto !important;
             min-height: 297mm !important;
-            padding: 15mm !important;
+            padding: 12mm !important;
             margin: 0 !important;
             background: white !important;
             overflow: visible !important;
@@ -30,17 +30,17 @@ export default function CVTemplateMinimalist({ profile, experiences, educations,
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
           }
-          header { display: flex !important; flex-direction: row !important; align-items: start !important; justify-content: space-between !important; margin-bottom: 15pt !important; }
-          h1 { font-size: 20pt !important; margin-bottom: 4pt !important; }
-          h2 { font-size: 8pt !important; margin-bottom: 8pt !important; }
-          h3 { font-size: 10pt !important; margin-bottom: 2pt !important; }
-          p, span, div { font-size: 8.5pt !important; line-height: 1.2 !important; }
-          .mb-12 { margin-bottom: 10pt !important; }
-          .space-y-12 > * + * { margin-top: 12pt !important; }
-          .space-y-10 > * + * { margin-top: 8pt !important; }
-          .pt-12 { padding-top: 10pt !important; }
-          .w-24 { width: 1.2in !important; height: 1.2in !important; }
-          .flex-col.md\\:grid { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 15pt !important; }
+          header { display: flex !important; flex-direction: row !important; align-items: start !important; justify-content: space-between !important; margin-bottom: 10pt !important; }
+          h1 { font-size: 16pt !important; margin-bottom: 2pt !important; }
+          h2 { font-size: 7.5pt !important; margin-bottom: 6pt !important; }
+          h3 { font-size: 8.5pt !important; margin-bottom: 1pt !important; }
+          p, span, div { font-size: 7.5pt !important; line-height: 1.1 !important; }
+          .mb-12 { margin-bottom: 8pt !important; }
+          .space-y-12 > * + * { margin-top: 10pt !important; }
+          .space-y-10 > * + * { margin-top: 6pt !important; }
+          .pt-12 { padding-top: 8pt !important; }
+          .w-24 { width: 1.0in !important; height: 1.0in !important; }
+          .flex-col.md\\:grid { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 10pt !important; }
           .md\\:col-span-1 { grid-column: span 1 !important; }
           .md\\:col-span-3 { grid-column: span 3 !important; }
           .md\\:grid-cols-2 { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 15pt !important; }
