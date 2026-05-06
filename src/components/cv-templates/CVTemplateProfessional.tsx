@@ -10,8 +10,17 @@ interface TemplateProps {
 
 export default function CVTemplateProfessional({ profile, experiences, educations, projects, skills }: TemplateProps) {
   return (
-    <div className="bg-white text-black p-6 md:p-12 w-full md:w-[210mm] min-h-screen md:min-h-[297mm] mx-auto font-serif print:w-[210mm] print:p-0 print:min-h-0" id="cv-professional">
+    <div className="bg-white text-[#1a1a1a] w-full md:w-[210mm] min-h-[1000px] md:min-h-[297mm] h-auto mx-auto font-serif shadow-sm print:shadow-none" id="cv-professional" style={{ width: '210mm', padding: '20mm 15mm 20mm 25mm', boxSizing: 'border-box', overflow: 'visible' }}>
       <style>{`
+        @media screen {
+          #cv-professional {
+            width: 794px !important;
+            min-height: 1123px !important;
+            height: auto !important;
+            margin: 2rem auto !important;
+            border: 1px solid #e2e8f0;
+          }
+        }
         @media print {
           @page {
             size: A4;
@@ -21,25 +30,26 @@ export default function CVTemplateProfessional({ profile, experiences, education
             width: 210mm !important;
             height: auto !important;
             min-height: 297mm !important;
-            overflow: visible !important;
-            background: white !important;
-            color: black !important;
-            padding: 12mm !important;
+            padding: 20mm 15mm 20mm 25mm !important;
             margin: 0 !important;
             display: block !important;
             box-sizing: border-box !important;
+            background: white !important;
+            color: #1a1a1a !important;
+            overflow: visible !important;
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
           }
-          header { flex-direction: row !important; align-items: start !important; justify-content: space-between !important; margin-bottom: 8pt !important; border-width: 1pt !important; padding-bottom: 4pt !important; }
-          h1 { font-size: 16pt !important; margin-bottom: 2pt !important; }
-          h2 { font-size: 9pt !important; margin-bottom: 4pt !important; padding-bottom: 1pt !important; border-bottom: 0.5pt solid #ccc !important; }
-          h3 { font-size: 8.5pt !important; }
-          p, span, div { font-size: 8pt !important; line-height: 1.1 !important; color: black !important; }
-          .mb-8 { margin-bottom: 6pt !important; }
-          .space-y-6 > * + * { margin-top: 4pt !important; }
-          .space-y-4 > * + * { margin-top: 3pt !important; }
-          .w-24 { width: 0.8in !important; height: 0.8in !important; }
+          header { margin-bottom: 20pt !important; border-bottom-width: 1.5pt !important; border-color: #1a1a1a !important; padding-bottom: 12pt !important; }
+          h1 { font-size: 18pt !important; margin-bottom: 4pt !important; line-height: 1.2 !important; color: #1a1a1a !important; }
+          h2 { font-size: 14pt !important; margin-bottom: 8pt !important; padding-bottom: 4pt !important; border-bottom: 0.5pt solid #1a1a1a !important; line-height: 1.5 !important; }
+          h3 { font-size: 12pt !important; color: #1a1a1a !important; }
+          p, span, div, li { font-size: 11pt !important; line-height: 1.5 !important; color: #1a1a1a !important; }
+          section { margin-bottom: 15pt !important; page-break-inside: avoid !important; break-inside: avoid !important; }
+          .mb-8 { margin-bottom: 12pt !important; }
+          .space-y-6 > * + * { margin-top: 10pt !important; }
+          .space-y-4 > * + * { margin-top: 8pt !important; }
+          .w-24 { width: 1.0in !important; height: 1.0in !important; }
         }
       `}</style>
       {/* Header */}
