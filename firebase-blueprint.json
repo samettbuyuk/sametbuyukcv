@@ -1,0 +1,97 @@
+{
+  "entities": {
+    "Profile": {
+      "title": "Profile",
+      "description": "Personal information and contact details.",
+      "type": "object",
+      "properties": {
+        "fullName": { "type": "string" },
+        "title": { "type": "string" },
+        "summary": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "location": { "type": "string" },
+        "profileImageUrl": { "type": "string" },
+        "links": { "type": "object" }
+      },
+      "required": ["fullName", "title", "email"]
+    },
+    "Experience": {
+      "title": "Experience",
+      "description": "Professional work history.",
+      "type": "object",
+      "properties": {
+        "company": { "type": "string" },
+        "position": { "type": "string" },
+        "startDate": { "type": "string" },
+        "endDate": { "type": "string" },
+        "description": { "type": "string" },
+        "order": { "type": "number" }
+      },
+      "required": ["company", "position", "startDate"]
+    },
+    "Education": {
+      "title": "Education",
+      "description": "Academic background.",
+      "type": "object",
+      "properties": {
+        "school": { "type": "string" },
+        "degree": { "type": "string" },
+        "startDate": { "type": "string" },
+        "endDate": { "type": "string" },
+        "description": { "type": "string" },
+        "order": { "type": "number" }
+      },
+      "required": ["school", "degree", "startDate"]
+    },
+    "Project": {
+      "title": "Project",
+      "description": "Portfolio work and side projects.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "link": { "type": "string" },
+        "githubLink": { "type": "string" },
+        "technologies": { "type": "array" },
+        "order": { "type": "number" }
+      },
+      "required": ["title", "description"]
+    },
+    "Skill": {
+      "title": "Skill",
+      "description": "Technical skills and proficiencies.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "level": { "type": "number" },
+        "order": { "type": "number" }
+      },
+      "required": ["name"]
+    }
+  },
+  "firestore": {
+    "profile/data": {
+      "schema": "Profile",
+      "description": "The main profile data."
+    },
+    "experience/{experienceId}": {
+      "schema": "Experience",
+      "description": "Individual work experience entries."
+    },
+    "education/{educationId}": {
+      "schema": "Education",
+      "description": "Individual education entries."
+    },
+    "projects/{projectId}": {
+      "schema": "Project",
+      "description": "Individual project entries."
+    },
+    "skills/{skillId}": {
+      "schema": "Skill",
+      "description": "Individual skill entries."
+    }
+  }
+}

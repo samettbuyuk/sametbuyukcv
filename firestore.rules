@@ -1,0 +1,96 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 0. Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // --- Helpers ---
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && request.auth.token.email == 'samettbuyuk@gmail.com' && request.auth.token.email_verified == true;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // --- Validation Helpers ---
+
+    function isValidProfile(data) {
+      return data.keys().hasAll(['fullName', 'title', 'email']) &&
+             data.fullName is string && data.fullName.size() <= 100 &&
+             data.title is string && data.title.size() <= 100 &&
+             data.email is string && data.email.size() <= 100;
+    }
+
+    function isValidExperience(data) {
+      return data.keys().hasAll(['company', 'position', 'startDate']) &&
+             data.company is string && data.company.size() <= 100 &&
+             data.position is string && data.position.size() <= 100 &&
+             data.startDate is string && data.startDate.size() <= 50;
+    }
+
+    function isValidEducation(data) {
+      return data.keys().hasAll(['school', 'degree', 'startDate']) &&
+             data.school is string && data.school.size() <= 100 &&
+             data.degree is string && data.degree.size() <= 100 &&
+             data.startDate is string && data.startDate.size() <= 50;
+    }
+
+    function isValidProject(data) {
+      return data.keys().hasAll(['title', 'description']) &&
+             data.title is string && data.title.size() <= 100 &&
+             data.description is string && data.description.size() <= 2000;
+    }
+
+    function isValidSkill(data) {
+      return data.keys().hasAll(['name']) &&
+             data.name is string && data.name.size() <= 50;
+    }
+
+    // --- Rules ---
+
+    // Profile data: Public read, Admin write
+    match /profile/data {
+      allow read: if true;
+      allow write: if isAdmin() && isValidProfile(incoming());
+    }
+
+    // Experience: Public read, Admin write
+    match /experience/{experienceId} {
+      allow read: if true;
+      allow write: if isAdmin() && isValidId(experienceId) && isValidExperience(incoming());
+    }
+
+    // Education: Public read, Admin write
+    match /education/{educationId} {
+      allow read: if true;
+      allow write: if isAdmin() && isValidId(educationId) && isValidEducation(incoming());
+    }
+
+    // Projects: Public read, Admin write
+    match /projects/{projectId} {
+      allow read: if true;
+      allow write: if isAdmin() && isValidId(projectId) && isValidProject(incoming());
+    }
+
+    // Skills: Public read, Admin write
+    match /skills/{skillId} {
+      allow read: if true;
+      allow write: if isAdmin() && isValidId(skillId) && isValidSkill(incoming());
+    }
+  }
+}

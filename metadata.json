@@ -1,0 +1,9 @@
+{
+  "name": "ProCV: Admin-Driven Portfolio",
+  "description": "A professional CV website with a secure admin panel for real-time updates and multi-format PDF generation.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": []
+}
