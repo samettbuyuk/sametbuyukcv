@@ -78,7 +78,6 @@ export default function CVTemplateModern({ profile, experiences, educations, pro
             <p className="truncate overflow-hidden">{profile.email}</p>
             <p>{profile.phone}</p>
             <p>{profile.location}</p>
-            {profile.links?.linkedin && <p className="truncate overflow-hidden">LI: {profile.links.linkedin.replace('https://', '')}</p>}
           </div>
         </section>
 

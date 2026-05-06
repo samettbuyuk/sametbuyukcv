@@ -6,12 +6,10 @@ import { useReactToPrint } from 'react-to-print';
 import { Link } from 'react-router-dom';
 import CVTemplateProfessional from '../components/cv-templates/CVTemplateProfessional';
 import CVTemplateModern from '../components/cv-templates/CVTemplateModern';
-import CVTemplateMinimalist from '../components/cv-templates/CVTemplateMinimalist';
-import CVTemplateCreative from '../components/cv-templates/CVTemplateCreative';
 
 export default function PublicCV() {
   const { profile, experiences, educations, projects, skills, loading } = useCVData();
-  const [viewMode, setViewMode] = useState<'bento' | 'professional' | 'modern' | 'minimalist' | 'creative'>('bento');
+  const [viewMode, setViewMode] = useState<'bento' | 'professional' | 'modern'>('bento');
   const [isDark, setIsDark] = useState(false);
   const [showContactOptions, setShowContactOptions] = useState(false);
   const printRef = useRef<HTMLDivElement>(null);
@@ -26,9 +24,7 @@ export default function PublicCV() {
   const viewLabels = {
     bento: 'BENTO GÖRÜNÜM',
     professional: 'PROFESYONEL',
-    modern: 'MODERN',
-    minimalist: 'MİNİMALİST',
-    creative: 'YARATICI'
+    modern: 'MODERN'
   };
 
   useEffect(() => {
@@ -447,7 +443,7 @@ export default function PublicCV() {
             >
               <CVTemplateProfessional profile={profile} experiences={experiences} educations={educations} projects={projects} skills={skills} />
             </motion.div>
-          ) : viewMode === 'modern' ? (
+          ) : (
             <motion.div
               key="modern"
               initial={{ opacity: 0, scale: 0.98 }}
@@ -456,26 +452,6 @@ export default function PublicCV() {
               className="bg-white text-slate-900 shadow-2xl rounded-3xl overflow-hidden min-h-[1000px] max-w-5xl mx-auto"
             >
               <CVTemplateModern profile={profile} experiences={experiences} educations={educations} projects={projects} skills={skills} />
-            </motion.div>
-          ) : viewMode === 'minimalist' ? (
-            <motion.div
-              key="minimalist"
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.02 }}
-              className="bg-white text-slate-900 shadow-2xl rounded-3xl overflow-hidden min-h-[1000px] max-w-5xl mx-auto"
-            >
-              <CVTemplateMinimalist profile={profile} experiences={experiences} educations={educations} projects={projects} skills={skills} />
-            </motion.div>
-          ) : (
-            <motion.div
-              key="creative"
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.02 }}
-              className="bg-white text-slate-900 shadow-2xl rounded-3xl overflow-hidden min-h-[1000px] max-w-5xl mx-auto"
-            >
-              <CVTemplateCreative profile={profile} experiences={experiences} educations={educations} projects={projects} skills={skills} />
             </motion.div>
           )}
         </AnimatePresence>
@@ -524,10 +500,6 @@ export default function PublicCV() {
           <div className="print-container-wrapper">
             {viewMode === 'modern' ? (
               <CVTemplateModern profile={profile} experiences={experiences} educations={educations} projects={projects} skills={skills} />
-            ) : viewMode === 'minimalist' ? (
-              <CVTemplateMinimalist profile={profile} experiences={experiences} educations={educations} projects={projects} skills={skills} />
-            ) : viewMode === 'creative' ? (
-              <CVTemplateCreative profile={profile} experiences={experiences} educations={educations} projects={projects} skills={skills} />
             ) : (
               <CVTemplateProfessional profile={profile} experiences={experiences} educations={educations} projects={projects} skills={skills} />
             )}
