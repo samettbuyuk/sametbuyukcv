@@ -439,7 +439,7 @@ export default function PublicCV() {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 1.02 }}
-              className="bg-white text-slate-900 shadow-2xl rounded-3xl overflow-hidden min-h-[1000px] max-w-5xl mx-auto"
+              className="bg-white text-slate-900 shadow-2xl rounded-3xl md:overflow-visible min-h-[1000px] max-w-5xl mx-auto"
             >
               <CVTemplateProfessional profile={profile} experiences={experiences} educations={educations} projects={projects} skills={skills} />
             </motion.div>
@@ -449,7 +449,7 @@ export default function PublicCV() {
               initial={{ opacity: 0, scale: 0.98 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 1.02 }}
-              className="bg-white text-slate-900 shadow-2xl rounded-3xl overflow-hidden min-h-[1000px] max-w-5xl mx-auto"
+              className="bg-white text-slate-900 shadow-2xl rounded-3xl md:overflow-visible min-h-[1000px] max-w-5xl mx-auto"
             >
               <CVTemplateModern profile={profile} experiences={experiences} educations={educations} projects={projects} skills={skills} />
             </motion.div>
@@ -467,12 +467,13 @@ export default function PublicCV() {
           left: '-10000px', 
           top: 0, 
           width: '210mm', 
-          height: '297mm', 
-          overflow: 'hidden',
+          height: 'auto', 
+          minHeight: '297mm',
+          overflow: 'visible',
           zIndex: -1
         }}
       >
-        <div ref={printRef} className="bg-white" style={{ width: '210mm', height: '297mm', margin: 0, padding: 0 }}>
+        <div ref={printRef} className="bg-white" style={{ width: '210mm', minHeight: '297mm', height: 'auto', margin: 0, padding: 0 }}>
           <style>{`
             @media print {
               @page {
@@ -487,12 +488,11 @@ export default function PublicCV() {
               }
               .print-container-wrapper {
                 width: 210mm !important;
-                height: 297mm !important;
-                overflow: hidden !important;
+                height: auto !important;
+                min-height: 297mm !important;
+                overflow: visible !important;
                 margin: 0 !important;
                 padding: 0 !important;
-                page-break-after: avoid !important;
-                page-break-before: avoid !important;
                 background: white !important;
               }
             }

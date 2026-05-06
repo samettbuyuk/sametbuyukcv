@@ -10,7 +10,7 @@ interface TemplateProps {
 
 export default function CVTemplateModern({ profile, experiences, educations, projects, skills }: TemplateProps) {
   return (
-    <div className="flex flex-col md:flex-row w-full md:w-[210mm] min-h-screen md:min-h-[297mm] mx-auto overflow-hidden shadow-2xl font-sans print:w-[210mm] print:h-[297mm] print:shadow-none" id="cv-modern">
+    <div className="flex flex-col md:flex-row w-full md:w-[210mm] min-h-screen md:min-h-[297mm] mx-auto overflow-visible shadow-2xl font-sans print:w-[210mm] print:h-auto print:shadow-none" id="cv-modern">
       <style>{`
         @media print {
           @page {
