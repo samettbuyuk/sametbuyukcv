@@ -31,20 +31,20 @@ export default function CVTemplateCreative({ profile, experiences, educations, p
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
           }
-          header { padding: 10pt !important; border-radius: 10pt !important; background-color: #0f172a !important; color: white !important; margin-bottom: 4pt !important; }
-          section { padding: 8pt !important; border-radius: 10pt !important; margin-bottom: 0 !important; }
-          h1 { font-size: 14pt !important; }
-          h2 { font-size: 8.5pt !important; margin-bottom: 4pt !important; }
-          h3 { font-size: 8.5pt !important; }
-          p, div, span { font-size: 7.5pt !important; line-height: 1.05 !important; }
-          .grid { display: grid !important; gap: 6pt !important; }
+          header { padding: 8pt !important; border-radius: 8pt !important; background-color: #0f172a !important; color: white !important; margin-bottom: 3pt !important; }
+          section { padding: 6pt !important; border-radius: 8pt !important; margin-bottom: 0 !important; }
+          h1 { font-size: 13pt !important; }
+          h2 { font-size: 7.5pt !important; margin-bottom: 3pt !important; }
+          h3 { font-size: 7.5pt !important; }
+          p, div, span { font-size: 6.5pt !important; line-height: 1.0 !important; }
+          .grid { display: grid !important; gap: 4pt !important; }
           .col-span-8 { grid-column: span 8 / span 8 !important; }
           .col-span-4 { grid-column: span 4 / span 4 !important; }
           .col-span-12 { grid-column: span 12 / span 12 !important; }
-          .space-y-8 > * + * { margin-top: 5pt !important; }
-          .space-y-6 > * + * { margin-top: 3pt !important; }
-          .w-24 { width: 0.8in !important; height: 0.8in !important; }
-          .rounded-[40px] { border-radius: 12pt !important; }
+          .space-y-8 > * + * { margin-top: 3pt !important; }
+          .space-y-6 > * + * { margin-top: 2pt !important; }
+          .w-24 { width: 0.7in !important; height: 0.7in !important; }
+          .rounded-[40px] { border-radius: 8pt !important; }
         }
       `}</style>
       {/* Header Bento Box */}

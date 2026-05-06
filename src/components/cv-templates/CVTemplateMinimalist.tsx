@@ -20,7 +20,7 @@ export default function CVTemplateMinimalist({ profile, experiences, educations,
           #cv-minimalist {
             width: 210mm !important;
             height: 297mm !important;
-            padding: 12mm !important;
+            padding: 10mm !important;
             margin: 0 !important;
             background: white !important;
             overflow: hidden !important;
@@ -28,15 +28,15 @@ export default function CVTemplateMinimalist({ profile, experiences, educations,
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
           }
-          h1 { font-size: 18pt !important; margin-bottom: 2pt !important; }
-          h2 { font-size: 7.5pt !important; margin-bottom: 6pt !important; }
-          h3 { font-size: 8.5pt !important; }
-          p, span, div { font-size: 7.5pt !important; line-height: 1.15 !important; }
-          .mb-12 { margin-bottom: 12pt !important; }
-          .space-y-12 > * + * { margin-top: 10pt !important; }
-          .space-y-10 > * + * { margin-top: 8pt !important; }
-          .pt-12 { padding-top: 10pt !important; }
-          .w-24 { width: 1.0in !important; height: 1.0in !important; }
+          h1 { font-size: 15pt !important; margin-bottom: 1pt !important; }
+          h2 { font-size: 6.5pt !important; margin-bottom: 4pt !important; }
+          h3 { font-size: 7.5pt !important; }
+          p, span, div { font-size: 6.5pt !important; line-height: 1.0 !important; }
+          .mb-12 { margin-bottom: 6pt !important; }
+          .space-y-12 > * + * { margin-top: 6pt !important; }
+          .space-y-10 > * + * { margin-top: 4pt !important; }
+          .pt-12 { padding-top: 6pt !important; }
+          .w-24 { width: 0.8in !important; height: 0.8in !important; }
         }
       `}</style>
       <header className="mb-12 flex flex-col md:flex-row justify-between items-center md:items-start text-center md:text-left gap-6">

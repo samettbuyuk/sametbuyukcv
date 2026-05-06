@@ -30,15 +30,15 @@ export default function CVTemplateProfessional({ profile, experiences, education
             -webkit-print-color-adjust: exact !important;
             print-color-adjust: exact !important;
           }
-          header { flex-direction: row !important; align-items: center !important; justify-content: space-between !important; margin-bottom: 8pt !important; border-width: 1pt !important; }
-          h1 { font-size: 18pt !important; margin-bottom: 2pt !important; }
-          h2 { font-size: 10pt !important; margin-bottom: 4pt !important; padding-bottom: 1pt !important; border-bottom: 0.5pt solid #ccc !important; }
-          h3 { font-size: 8.5pt !important; }
-          p, span, div { font-size: 7.5pt !important; line-height: 1.1 !important; color: black !important; }
-          .mb-8 { margin-bottom: 8pt !important; }
-          .space-y-6 > * + * { margin-top: 5pt !important; }
-          .space-y-4 > * + * { margin-top: 3pt !important; }
-          .w-24 { width: 1.2in !important; height: 1.2in !important; }
+          header { flex-direction: row !important; align-items: center !important; justify-content: space-between !important; margin-bottom: 5pt !important; border-width: 1pt !important; padding-bottom: 4pt !important; }
+          h1 { font-size: 15pt !important; margin-bottom: 1pt !important; }
+          h2 { font-size: 9pt !important; margin-bottom: 3pt !important; padding-bottom: 1pt !important; border-bottom: 0.5pt solid #ccc !important; }
+          h3 { font-size: 7.5pt !important; }
+          p, span, div { font-size: 6.5pt !important; line-height: 1.0 !important; color: black !important; }
+          .mb-8 { margin-bottom: 5pt !important; }
+          .space-y-6 > * + * { margin-top: 3pt !important; }
+          .space-y-4 > * + * { margin-top: 2pt !important; }
+          .w-24 { width: 0.8in !important; height: 0.8in !important; }
         }
       `}</style>
       {/* Header */}
